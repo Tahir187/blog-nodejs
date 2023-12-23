@@ -298,7 +298,7 @@ img {
 
 /* SeachBar */
 .searchBar {
-  visibility: hidden;
+  visibility: visible;
   transform: translateY(-100px);
   background-color: var(--black);
   padding: 4px 0;
@@ -316,6 +316,7 @@ img {
 .searchBar input {
   margin: 0;
   border: 0;
+  cursor: pointer;
 }
 
 #searchClose {
@@ -324,6 +325,7 @@ img {
   right: 0;
   color: var(--gray-light);
   padding: 15px;
+  cursor: pointer;
 }
 
 
