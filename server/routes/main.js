@@ -28,6 +28,7 @@ router.get("", async (req, res) => {
       data,
       current: page,
       nextPage: hasNextPage ? nextPage : null,
+      currentRoute: '/'
     });
   } catch (error) {
     console.log(error);
@@ -48,7 +49,8 @@ router.get("/post/:id", async (req, res) => {
       description: "Simple Blog created with NodeJs, ExpressJs & MongoDb",
     };
 
-    res.render("post", { locals, data });
+    res.render("post", { locals, data,
+      currentRoute: `/post/${slug}` });
   } catch (error) {
     console.log(error);
   }
@@ -84,32 +86,18 @@ router.post('/search', async(req,res) =>{
   }
 })
 
-
-
+// about route
 router.get("/about", (req, res) => {
-  res.render("about");
+  res.render("about",{
+    currentRoute: '/about'
+  });
 });
 
-// function insertPostData() {
-//   Post.insertMany([
-//     {
-//       title: "Building a Blog",
-//       body: "This is the body text",
-//     },
-//     {
-//       title: "build real-time, event-driven application in Node.js",
-//       body: "Socket.io: Learn how to use Socket.io to built real-time, event-driven application in Node.js.",
-//     },
-//     {
-//       title: "Dicover how to use Express.js",
-//       body: "Dicover how to use Express.js a popular Node.js web framework, to build web appliation.",
-//     },
-//     {
-//       title: "Nodejs Blog",
-//       description: "Simple Blog created with NodeJs, ExpressJs & MongoDb",
-//     },
-//   ]);
-// }
-// insertPostData();
+// contact route
+router.get("/contact", (req, res)=>{
+  res.render("contact",{
+    currentRoute: '/contact'
+  })
+})
 
 module.exports = router;
