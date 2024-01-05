@@ -79,7 +79,8 @@ router.post('/search', async(req,res) =>{
     });
     res.render("search", {
       data,
-      locals
+      locals,
+      currentRoute: `/post` 
     });
   } catch (error) {
     console.log(error)
